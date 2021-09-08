@@ -16,22 +16,15 @@ public class Main {
     	int arr[] = new int[N];
     	
     	for(int i=0; i<N; i++) {
-    		arr[i] = Integer.parseInt(st.nextToken());
+    		arr[Integer.parseInt(st.nextToken())] += 1;
     	}
-    	Arrays.sort(arr);
     	
-    	int count = 0;
-    	for(int i=0; i<N; i++) {
-    		for(int j=i+1; j<N; j++) {
-    			if(arr[i] == arr[j]) {
-    				continue;
-    			}
-    			else {
-    				count++;
-    			}
-    		}
+    	int result = 0;
+    	for(int i=1; i<=M; i++) {
+    		N -= arr[i];
+    		result += arr[i]*N;
     	}
-    	bw.write(String.valueOf(count));
+    	bw.write(String.valueOf(result));
     	br.close();
     	bw.flush();
     	bw.close();
